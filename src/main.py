@@ -16,7 +16,7 @@ print("### Affichage du domaine vide ###")
 
 print("### Le filtrage ###")
 f1 = Filtrage(g1, d1)
-f1.lire_Grille("5.txt")
+f1.lire_Grille("../ressources/5.txt")
 f1.propager_tout()
 f1.toString()
 print("###Suggest ###")
