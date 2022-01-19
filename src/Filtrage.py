@@ -74,7 +74,7 @@ class Filtrage:
 
     def propager_une_fois(self):
         """
-        Boucle parcourant une fois toute la grille du sudoku pour vérifiant que la valeur n'apparait qu'une fois dans sa ligne et colonne
+        Boucle parcourant une fois toute la grille du sudoku pour vérifier que la valeur n'apparait qu'une fois dans sa ligne et colonne
         """
         for i in range(0, len(self.grille.grille)):
             for j in range(0, len(self.grille.grille[i])):
