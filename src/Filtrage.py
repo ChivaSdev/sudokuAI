@@ -20,6 +20,7 @@ class Filtrage:
         for i in range(0, len(self.grille.grille)):
             for j in range(0, len(self.grille.grille)):
                 self.affecter_case(i, j, matrice_sudoku[i][j])
+        return matrice_sudoku
 
     def affecter_case(self, index_ligne, index_colonne, nombre):
         """
