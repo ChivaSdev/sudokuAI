@@ -82,7 +82,7 @@ if __name__ == '__main__':
  
 
     filtrage = Filtrage(grille, domaine)
-    grille = filtrage.lire_Grille("5.txt")
+    grille = filtrage.lire_Grille("../ressources/5.txt")
     filtrage.propager_tout()
 
 
