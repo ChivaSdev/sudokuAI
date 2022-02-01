@@ -44,7 +44,7 @@ class Fenetre(QWidget):
         self.setFont(font)
 
         self.resize(55*9, 55*9)
-
+        
         position = QGridLayout()
         position.addWidget(self.table, 0, 0)
         self.setLayout(position)
