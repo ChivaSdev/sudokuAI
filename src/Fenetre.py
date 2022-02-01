@@ -24,17 +24,20 @@ class Fenetre(QWidget):
         self.table.horizontalHeader().hide()
         self.table.verticalHeader().hide()
 
+        # On définit la taille de chaque cases
         for row in range(0, self.nbLigne):
             self.table.setRowHeight(row, 50)
             for col in range(0, self.nbColonne):
                 self.table.setColumnWidth(col, 50)
 
+        # Chaque case devient un TableWidgetItem
         for row in range(0, self.nbLigne):
             for col in range(0, self.nbColonne):
                 item = QTableWidgetItem()
                 item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
                 self.table.setItem(row, col, item)
 
+        # Choix de la police
         font = QFont()
         font.setFamily("DejaVu Sans")
         font.setPointSize(16)
@@ -48,6 +51,7 @@ class Fenetre(QWidget):
 
         self.g0 = grille
 
+        # On délégue le fait de dessiner en gars les bordures d'une case (traditionnelle à une grille de sudoku)
         self.delegate = Delegate(self.table)
         self.table.setItemDelegate(self.delegate)
 
@@ -57,18 +61,21 @@ class Fenetre(QWidget):
 
         self.affiche(self.g)
 
+        # La grille séléctionnée au lancement est la première (0, 0)
         self.table.setFocus()
         self.table.setCurrentCell(0,0)
 
     def affiche(self, g):
-
+        """ Fonction qui permet l'affichage de la grille """
         for row in range(0, len(g[0])):
             for col in range(0, len(g)):
                 if g[row][col] == "-":
+                    # Si la grille importée ne contient aucun chiffre, alors on la rend séléctionnable et éditable
                     self.table.item(row, col).setText("")
                     self.table.item(row, col).setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsEditable)
 
                 else:
+                    # Si la grille importée contien un chiffre, alors on la rend immmuable
                     self.table.item(row, col).setText(str(g[row][col]))
                     self.table.item(row, col).setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable)
 
