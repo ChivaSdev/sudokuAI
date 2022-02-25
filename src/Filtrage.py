@@ -122,3 +122,25 @@ class Filtrage:
             print(np.where(np.array(self.domaine.domaine[i][j]) == 1)[0])
         else:
             print("La case est déjà complétée.")
+
+    def suggestColumn(self, i ):
+        """
+        Affiche les solutions possibles des cases d'une colonne
+        """
+        if i<0 or i>8:
+            return print("La colonne n'existe pas")
+        for j in range(0, len(self.domaine.domaine[i])):
+            if(isinstance(self.suggestOneCase(j,0), list)):
+                print("Case",j+1,"de la colonne",i+1)
+                print(self.suggestOneCase(j,0))
+              
+    def suggestRow(self, i):
+        """
+        Affiche les solutions possibles des d'une ligne
+        """
+        if i<0 or i>8:
+            return print("La ligne n'existe pas")
+        for j in range(0, len(self.domaine.domaine[i])):
+            if(isinstance(self.suggestOneCase(0,j), list)):
+                print("Case",j+1,"de la ligne",i+1)
+                print(self.suggestOneCase(0,j))

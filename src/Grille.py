@@ -26,6 +26,8 @@ class Grille:
         for i in range(0, len(self.grille)):
             for j in range(0, len(self.grille[i])):
                 self.grille[i][j] = 0
+    def get_Grille(self):
+        return self.grille
 
     def get_ligne(self):
         return self.p
